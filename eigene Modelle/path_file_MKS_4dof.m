@@ -15,5 +15,5 @@ function [path]=path_file_MKS_4dof(type,t,t_max,p0pf)
                  -p0(1)*w*sin(w*s);...
                  p0(1)*w*cos(w*s)];
     end
-    path=zd.';
+    path=zd;
 end

@@ -4,8 +4,8 @@ function F = servo_file_MKS_4dof(Dx,x,path,parameters)
 %path = [x y dx dy d2x d2y]
    
 
-F(1) = parameters(1)*cos(x(3))+parameters(2)*cos(x(3)+x(4))-path(1); %x constraint
-F(2) = parameters(1)*sin(x(3))+parameters(2)*sin(x(3)+x(4))-path(2); %y constraint
+F(1) = parameters(9)*cos(x(3))+parameters(10)*cos(x(3)+x(4))-path(1); %x constraint
+F(2) = parameters(9)*sin(x(3))+parameters(10)*sin(x(3)+x(4))-path(2); %y constraint
 
 %servo velocity
 %F(1) = -parameters(9)*x(7)*sin(x(3))-parameters(10)*(x(7)+x(8))*sin(x(3)+x(4))-path(3); %dx constraint
