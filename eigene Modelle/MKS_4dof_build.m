@@ -12,6 +12,11 @@ parameter = [m1 m2 m3 m4 I1 I2 I3 I4 L1 L2 c1 d1 c2 d2];
 m = [m1 m2 m3 m4];
 I = [I1 I2 I3 I4];
 
+%Reibung
+load('Par2.mat', 'D')
+D = D*dq;
+
+
 %Richtungsvektoren Schwerpunkt
 r(:,:,1) = sym(zeros(3,1));
 r(:,:,2) = [0 L1*cos(q(3)) L1*sin(q(3))]';
@@ -67,7 +72,7 @@ end
 %% Bewegungsgleichung in Dx Form aufstellen
 
 %dynamik
-f = [dq; M_inv*(fq-k)];
+f = [dq; M_inv*(fq-k+D)];
 %input
 W = [1 0 0 0 ; 0 1 0 0].'; %sortiert input u
 b = [zeros(4,2);M_inv*W];

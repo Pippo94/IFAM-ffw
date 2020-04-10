@@ -11,9 +11,7 @@ function [path]=path_file_Modell3dof_smblsh(type,t,t_max,p0pf)
         
         %p0(1) sollte L1+L2 entsprechen!!
         zd = [p0(1)*cos(w*s);...
-                 p0(1)*sin(w*s);...
-                 -p0(1)*w*sin(w*s);...
-                 p0(1)*w*cos(w*s)];
+                 p0(1)*sin(w*s)]
     end
     path=zd.';
 end
