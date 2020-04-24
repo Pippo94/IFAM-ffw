@@ -8,9 +8,9 @@ figure(1)
 ax1 = subplot(4,4, [1 2 5 6 9 10 13 14]);
 
 hold on
-plot(ax1, L1*cos(data.ffw.x(:,3)), L1*sin(data.ffw.x(:,3)));
-plot(ax1, L1*cos(data.ffw.x(:,3))+L2*cos(data.ffw.x(:,3)+data.ffw.x(:,4)),...
-    L1*sin(data.ffw.x(:,3))+L2*sin(data.ffw.x(:,3)+data.ffw.x(:,4)));
+plot(ax1, L1*cos(data.sim_ffw.x(:,3)), L1*sin(data.sim_ffw.x(:,3)));
+plot(ax1, L1*cos(data.sim_ffw.x(:,3))+L2*cos(data.sim_ffw.x(:,3)+data.sim_ffw.x(:,4)),...
+    L1*sin(data.sim_ffw.x(:,3))+L2*sin(data.sim_ffw.x(:,3)+data.sim_ffw.x(:,4)));
 plot(ax1,data.ffw.path_ref(1:3:end,1), data.ffw.path_ref(1:3:end,2), 'k--')
 axis([-0.1 0.6 -0.6 0.6])
 legend('Arm 1', 'Arm2', 'Referenz')

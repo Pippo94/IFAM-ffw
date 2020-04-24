@@ -27,10 +27,10 @@ p0pf=[r;q;0;...
 %number of differential equation
 num_of_dif_equation=8;
 
-options.ffw.abs_error = 1E-6;
+options.ffw.abs_error = 1E-7;
 options.ffw.t_max = 4;
 options.ffw.step_size = 0.01;
-options.ffw.max_iteration = 40;
+options.ffw.max_iteration = 30;
 
 %options.ffw.Jacobi_analytic = false;
 %ffw_toolbox_cleanup('auto');
@@ -38,6 +38,9 @@ options.ffw.max_iteration = 40;
 %options.ffw.export_ffw2c = true; %exportffw2m
 %options.ffw.export_ffw2m = true;
 %options.ffw.export_type = 'ffw';
+
+options.sim.max_iteration=30;
+options.sim.solver = 'ode15s';
 
 %Toolbox execution
 results=ffw_toolbox(@Modell_4dof_blsh,'Dx-model',@servo_file_4dof_blsh,@path_file_Modell_4dof_Testkreis,...

@@ -25,17 +25,18 @@ p0pf=[r;q;0;...
 %number of differential equation
 num_of_dif_equation=8;
 
-options.ffw.abs_error = 1E-9;
+options.ffw.abs_error = 1E-7;
 options.ffw.t_max = 4;
 %options.ffw.u_0 = [0 0];
 options.ffw.step_size = 0.01;
 options.ffw.max_iteration = 30;
 %options.ffw.Jacobi_analytic = false;
 %ffw_toolbox_cleanup('auto');
-options.ffw.export_ffw2c = true; %exportffw2m
-options.ffw.export_ffw2m = true;
-options.ffw.export_type = 'ffw';
-
+% options.ffw.export_ffw2c = true; %exportffw2m
+% options.ffw.export_ffw2m = true;
+% options.ffw.export_type = 'ffw';
+%options.sim.max_iteration = 100;
+options.sim.solver='ode15s';
 %Toolbox execution
 results=ffw_toolbox(@MKS_4dof,'Dx-model',@servo_file_MKS_4dof,@path_file_Modell4dof_Testkreis,...
     parameters,num_of_dif_equation,x0,p0pf,options);

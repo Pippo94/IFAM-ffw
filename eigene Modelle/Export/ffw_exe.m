@@ -1,20 +1,20 @@
-function [x_out,u_out,counter,path_ref]=ffw_exe(x_old,u_old,t,parameters,p0pf,type,t_max,counter)
+function [next_x,next_u,counter,path_ref]=ffw_exe(next_x,next_u,t,parameters,p0pf,type,t_max,counter)
 %current: vector: previous result of the newton algorythm
 %t: scalar: current time
 %parameters: vector: parameters in the same format/order as the parameter file
 %p0pf: vector: [start_point,end_point]
 %type: scalar: which path of the path should be executed?
 %t_max: scalar: time to reach the end_point
-path_file=@path_file_MKS_4dof;
+path_file=@path_file_Modell4dof_Testkreis;
 jacobi=@MKS_4dof_jacobi;
 ffw=@MKS_4dof_ffw;
 step_size=0.01;
 num_of_states=8;
-abs_error=0.001;
+abs_error=1e-09;
 max_iteration=30;
 %% Beginning of Template
-next_x=x_old.';
-next_u=u_old.';
+next_x=next_x.';
+next_u=next_u.';
 current=[next_x;next_u];
 next=current;
 path_ref=path_file(type,t,t_max,p0pf);%read out path from the path file
@@ -36,6 +36,6 @@ while counter<max_iteration%check wether the maximum iteration is reached
         break;%yes --> stop Newton's method
     end
 end
-x_out=next_x.';
-u_out=next_u.';
+next_x=next_x.';
+next_u=next_u.';
 end
